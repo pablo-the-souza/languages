@@ -1,0 +1,18 @@
+<mat-nav-list>
+
+   <a mat-list-item routerLink="/login" (click)="onClose()" *ngIf="!isAuth">
+    <mat-icon [ngStyle]="{'color':'white'}">sports_soccer</mat-icon>
+        <span class="nav-caption">Login</span>
+  </a> 
+
+  <a mat-list-item routerLink="/portuguese" (click)="onClose()"*ngIf="isAuth">
+      <mat-icon [ngStyle]="{'color':'white'}">sports_soccer</mat-icon>
+          <span class="nav-caption">My Words</span>
+    </a> 
+
+    <a mat-list-item routerLink="/portuguese" (click)="onLogout()"  *ngIf="isAuth">
+        <mat-icon [ngStyle]="{'color':'white'}">sports_soccer</mat-icon>
+            <span class="nav-caption">Logout</span>
+      </a> 
+ 
+ </mat-nav-list>

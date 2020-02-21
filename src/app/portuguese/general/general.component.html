@@ -1,1 +1,65 @@
-<p>general works!</p>
+<section class="words" fxLayout="column">
+  <div class="input">
+    <form 
+    fxLayout="column" 
+    fxLayoutAlign="center center" 
+    fxLayoutGap="10px" 
+    #f="ngForm" 
+    (ngSubmit)="onSubmit(f)">
+      <mat-form-field>
+        <input 
+        type="text" 
+        matInput 
+        placeholder = "New Word" 
+        ngModel 
+        name="name"
+        required
+        #wordInput="ngModel">
+        <mat-error *ngIf="wordInput.hasError('required')" >Field must not be empty</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Category</mat-label>
+         <select 
+           matNativeControl 
+           id="category"
+           name="category"
+           ngModel
+           required>
+         <option value="verb">Verb</option>
+         <option value="adjective">Adjective</option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Usage</mat-label>
+         <input 
+         type="text" 
+         matInput 
+         placeholder = "Usage" 
+         ngModel 
+         name="usage"
+         required
+         #usageInput="ngModel">
+      </mat-form-field>
+
+     <button mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+   </form>
+  </div>
+  
+
+  <mat-card fxFlex.xs="100%" fxFlex="400px">
+    <mat-card-title fxLayoutAlign="center">My Words</mat-card-title>
+    <mat-card-content fxLayoutAlign="center">
+      <mat-form-field>
+        <mat-select placeholder="My Words">
+          <mat-option *ngFor="let word of words" [value]="word.name">
+             {{word.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+
+</section>

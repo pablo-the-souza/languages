@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "language-app-101f5": {
+      "hosting": {
+        "language": [
+          "language-app-101f5"
+        ]
+      }
+    }
+  }
+}
